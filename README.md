@@ -16,9 +16,9 @@ The entire system is deployed on the robust infrastructure of Google Cloud Platf
 The architecture consist of the development of the API and the process of deploying in GCP Platform. In this platform we will use GCP-Artifact Registry and GCP-Cloud Run to store the Docker container and the deployment of the API so that we will get an URL to request the model.
 
 (API-Architecture)
-![arch1](images/arch1.png)
+![arch1](images/arch1.PNG)
 (GCP-Architecture)
-![arch2](images/arch2.png).
+![arch2](images/arch2.PNG).
 
 
 
