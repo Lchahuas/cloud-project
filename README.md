@@ -8,6 +8,16 @@ This project focuses on predicting Heart Failure using advanced machine learning
 
 To enhance accessibility and real-world usability, an intuitive API has been meticulously developed using FastAPI. This API is designed to seamlessly integrate with external applications or services, providing a convenient interface for Heart Failure predictions.
 
+## Why Cloud Computing is important for our application?
+
+- Infrastructure Automation and Orchestration:
+
+Utilize tools like Terraform or CloudFormation for automating infrastructure provisioning. Services like Kubernetes enable automated deployment and scaling of your application, ensuring it can handle varying workloads efficiently.
+
+- Cloud-based CI/CD: 
+
+Implement a CI/CD pipeline using services like Cloud Build or AWS CodePipeline for automated building, testing, and deployment of your application. Cloud-native CI/CD workflows leverage scalability for parallel testing and faster development cycles.
+
 ## Deployment on Google Cloud Platform
 
 The entire system is deployed on the robust infrastructure of Google Cloud Platform (GCP). This cloud-based deployment ensures scalability, reliability, and efficient management of computational resources. Leveraging GCP's services, the API is hosted in a manner that guarantees optimal performance and availability.
