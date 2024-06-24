@@ -6,21 +6,14 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from typing import List, Tuple, Union, Dict
-from utilities.custom_transformers import StringContainsTransformer
-
 
 def build_numeric_transformers(column_indices: Dict[str, List[int]]) -> List[Tuple[str, Union[Pipeline, TransformerMixin], List[int]]]:
     numeric_transformers = [
         (
-            "impute_numerical",
-            SimpleImputer(strategy="mean"),
-            column_indices["numerical"],
-        ),
-        (
             "scale_numerical",
             StandardScaler(),
             column_indices["numerical"],
-        ),
+        )
     ]
     return numeric_transformers
 

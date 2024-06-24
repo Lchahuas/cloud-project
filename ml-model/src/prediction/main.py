@@ -4,17 +4,18 @@ import os
 import pandas as pd
 import numpy as np
 from fastapi import FastAPI, Request
-from google.cloud import storage
+#from google.cloud import storage
 
 app = FastAPI()
-client = storage.Client()
+#client = storage.Client()
 
 if "AIP_STORAGE_URI" in os.environ:
     with open("model.joblib", "wb") as f:
-        client.download_blob_to_file(f"{os.environ['AIP_STORAGE_URI']}/model.joblib", f)
-    _model = joblib.load("model.joblib")
+        print("a")
+        #client.download_blob_to_file(f"{os.environ['AIP_STORAGE_URI']}/model.joblib", f)
+    #_model = joblib.load("model.joblib")
 else:
-    artifact_path = "./training/model_artifacts"
+    artifact_path = "./training/checkpoint"
     _model = joblib.load(f"{artifact_path}/model.joblib")
 
 
