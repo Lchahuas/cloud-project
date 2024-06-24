@@ -15,7 +15,7 @@ if "AIP_STORAGE_URI" in os.environ:
         #client.download_blob_to_file(f"{os.environ['AIP_STORAGE_URI']}/model.joblib", f)
     #_model = joblib.load("model.joblib")
 else:
-    artifact_path = "./training/checkpoint"
+    artifact_path = "../training/check"
     _model = joblib.load(f"{artifact_path}/model.joblib")
 
 
@@ -29,6 +29,7 @@ async def predict(request: Request):
     body = await request.json()
 
     instances = body["instances"]
+    print(instances)
     inputs_df = pd.DataFrame(instances)
     inputs_df.replace({None: np.nan}, inplace=True)
     outputs = _model.predict(inputs_df).tolist()
