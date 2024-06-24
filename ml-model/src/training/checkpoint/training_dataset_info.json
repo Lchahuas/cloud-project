@@ -1,1 +1,0 @@
-{"gcsSource": {"uris": ["train.csv"]}, "dataFormat": "csv", "targetField": "HeartDisease"}
