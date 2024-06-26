@@ -44,30 +44,13 @@ build:
 		done \
 	done
 
+compile:
+	@cd pipelines && \
+	kfp dsl compile --py ${pipeline}.py --output ${pipeline}.yaml --function pipeline;
 
-compile ?= true
-build ?= true
-wait ?= false
-run: ## Run pipeline in sandbox environment. Must specify pipeline=<training|prediction> and model e.g. models=propension siniestralidad persistencia . Optionally specify wait=<true|false> (default = false). Set compile=false to skip recompiling the pipeline and set build=false to skip rebuilding container images
-	@if [ $(compile) = "true" ]; then \
-		$(MAKE) compile models=${models}; \
-	elif [ $(compile) != "false" ]; then \
-		echo "ValueError: compile must be either true or false" ; \
-		exit ; \
-	fi && \
-	if [ $(build) = "true" ]; then \
-		$(MAKE) build models=${models}; \
-	elif [ $(build) != "false" ]; then \
-		echo "ValueError: build must be either true or false" ; \
-		exit ; \
-	fi && \
-	if [ "$$models" = "*" ]; then \
-		models=$(ALL_MODELS); \
-	fi; \
-	cd pipelines/src && \
-	for model in $$models; do \
-		poetry run python -m pipelines.utils.trigger_pipeline --template_path=pipelines/$$model/${pipeline}/pipeline.yaml --display_name=${pipeline} --wait=${wait}  ; \
-	done
+run: 
+	cd pipelines && \
+	python -m utils.trigger_pipeline --template_path=${pipeline}.yaml --display_name=${pipeline} --wait=false;
 
 test: ## Run unit tests for a specific component group or for all component groups and the pipeline trigger code. Optionally specify GROUP=<component group e.g. vertex-components>
 	@if [ -n "${GROUP}" ]; then \
