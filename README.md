@@ -112,7 +112,7 @@ You can test the API with the script [testing.py](testing.py). In this script, w
 
 - [FastAPI Configuration](https://fastapi.tiangolo.com/deployment/manually/)
 - [GCP Artifact Registry Configuration](https://medium.com/@jeremypanjaitan/how-to-use-gcp-artifact-registry-24e6e39858ab)
-- [GCP Cloud Build Configuration](https://medium.com/@williamwarley/guide-for-gcp-cloud-build-c2ea264a7f97)
+- [GCP Cloud Build Configuration](https://medium.com/@williamwarley/guide-for-gcp-cloud-build-c2ea264a7f97) .
 
 ## Next Steps:
 
